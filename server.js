@@ -30,4 +30,11 @@ app.get('/app/rpsls/play', function (req, res) {
     res.send(rpsls(req.query.shot))
 })
 
+app.post('/app/rps/play/:shot', function (req, res) {
+    res.send(rps(req.params.shot))
+})
+
+app.post('/app/rpsls/play/:shot', function (req, res) {
+    res.send(rpsls(req.params.shot))
+})
 
