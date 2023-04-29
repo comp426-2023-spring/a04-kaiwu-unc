@@ -29,9 +29,19 @@ app.get('/app/rps/play', function (req, res) {
     res.send(rps(req.query.shot))
 })
 
+app.post('/app/rps/play', function (req, res) {
+    res.status(200)
+    res.send(rps(req.body.shot))
+})
+
 app.get('/app/rpsls/play', function (req, res) {
     res.status(200)
     res.send(rpsls(req.query.shot))
+})
+
+app.post('/app/rpsls/play', function (req, res) {
+    res.status(200)
+    res.send(rpsls(req.body.shot))
 })
 
 app.get('/app/rps/play/:shot', function (req, res) {
