@@ -59,6 +59,4 @@ app.get('*', function (req, res) {
     res.send('404 Not Found')
 })
 
-app.listen(args.port, function () {
-    console.log(`Listening on port ${args.port}`)
-})
+app.listen(args.port)
