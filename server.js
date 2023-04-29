@@ -9,6 +9,12 @@ const args = minimist(process.argv.slice(2), {string: ['port'],
 const app = express();
 app.use(express.json())
 
+app.get('*', function (req, res) {
+    res.status(404)
+    res.send('404 Not Found')
+})
+
+
 app.get('/app', function (req, res) {
     res.status(200)
     res.send('200 OK')
@@ -34,15 +40,16 @@ app.get('/app/rpsls/play', function (req, res) {
     res.send(rpsls(req.query.shot))
 })
 
-app.post('/app/rps/play/:shot', function (req, res) {
+app.get('/app/rps/play/:shot', function (req, res) {
     res.status(200)
     res.send(rps(req.params.shot))
 })
 
-app.post('/app/rpsls/play/:shot', function (req, res) {
+app.get('/app/rpsls/play/:shot', function (req, res) {
     res.status(200)
     res.send(rpsls(req.params.shot))
 })
 
-
-
+app.listen(args.port, function () {
+    console.log(`Listening on port ${args.port}`)
+})
